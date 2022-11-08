@@ -7,6 +7,7 @@ import ServiceDetails from "./../Pages/Home/ServiceDetails/ServiceDetails";
 import ServiceAll from "../Pages/Home/ServiceAll/ServiceAll";
 import PrivateRouter from "./PrivateRouter";
 import Review from "../Pages/Review/Review/Review";
+import Comments from "../Pages/Home/ServiceDetails/Comments";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -38,6 +39,12 @@ export const router = createBrowserRouter([
             <ServiceDetails></ServiceDetails>
           </PrivateRouter>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/servicesall/${params.id}`),
+      },
+      {
+        path: "/servicedetails/:id",
+        element: <Comments></Comments>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/servicesall/${params.id}`),
       },

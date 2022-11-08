@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaComment, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import Comments from "./Comments";
+import Service from "./../Service/Service";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const { _id, description, title, img, price, rating } = useLoaderData();
+  const [commentes, setComments] = useState([]);
+  // console.log(user);
   const ratingFuction = (
     <>
       <div className="flex justify-center text-orange-400 items-center">
@@ -25,6 +29,7 @@ const ServiceDetails = () => {
     const email = user?.email || "unregisteered";
     const comment = form.comments.value;
     const profileImg = user?.photoURL;
+    const userName = user?.displayName;
     // const message = form.message.value;
     const message = {
       service: _id,
@@ -35,8 +40,10 @@ const ServiceDetails = () => {
       email,
       rating,
       profileImg,
+      userName,
+      setTimeout,
     };
-    // console.log(message);
+    console.log(message);
     fetch("http://localhost:5000/comments", {
       method: "POST",
       headers: {
@@ -54,6 +61,21 @@ const ServiceDetails = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/comments?service=${_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setComments(data);
+      });
+  }, []);
+  //  useEffect(() => {
+  //    fetch(`http://localhost:5000/comments/${_id}?id=${_id}`)
+  //      .then((res) => res.json())
+  //      .then((data) => {
+  //        setComments(data);
+  //      });
+  //  }, [_id, commentes]);
 
   return (
     <div>
@@ -110,7 +132,7 @@ const ServiceDetails = () => {
             />
           </div>
           <div className="ml-24 my-2">
-            <div className="rating">
+            <div className="rating mb-24">
               <input type="radio" name="rating-1" className="mask mask-star" />
               <input
                 type="radio"
@@ -121,6 +143,15 @@ const ServiceDetails = () => {
               <input type="radio" name="rating-1" className="mask mask-star" />
               <input type="radio" name="rating-1" className="mask mask-star" />
               <input type="radio" name="rating-1" className="mask mask-star" />
+            </div>
+            <div className="">
+              {commentes.map((comments) =>
+                _id === comments.service ? (
+                  <Comments key={comments._id} comments={comments}></Comments>
+                ) : (
+                  <></>
+                )
+              )}
             </div>
           </div>
         </form>

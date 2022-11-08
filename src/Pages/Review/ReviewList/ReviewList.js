@@ -2,8 +2,7 @@ import React from "react";
 import { FaRecycle } from "react-icons/fa";
 
 const ReviewList = ({ comments, handleDelete }) => {
-  const { comment, email, img, price, rating, servicName, service, _id } =
-    comments;
+  const { comment, email, img, price, rating, servicName, _id } = comments;
   return (
     <tr>
       <th>

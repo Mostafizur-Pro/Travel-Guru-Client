@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaRegComments } from "react-icons/fa";
+
 import { AuthContext } from "../../../Contexts/AuthProvider";
 import ReviewList from "../ReviewList/ReviewList";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
-  //   console.log(user);
-  const [commentes, setComments] = useState({});
-  console.log(commentes);
+
+  const [commentes, setComments] = useState([]);
+
   useEffect(() => {
     fetch(`http://localhost:5000/comments?email=${user?.email}`)
       .then((res) => res.json())
