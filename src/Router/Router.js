@@ -4,6 +4,7 @@ import Blog from "../Pages/Blog/Blog";
 import Login from "./../Pages/Login/Login";
 import Register from "./../Pages/Register/Register";
 import ServiceDetails from "./../Pages/Home/ServiceDetails/ServiceDetails";
+import ServiceAll from "../Pages/Home/ServiceAll/ServiceAll";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "/servicedetails",
         element: <ServiceDetails></ServiceDetails>,
+      },
+      {
+        path: "/servicesall",
+        element: <ServiceAll></ServiceAll>,
       },
     ],
   },

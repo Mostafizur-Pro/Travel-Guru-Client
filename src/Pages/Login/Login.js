@@ -20,7 +20,7 @@ const Login = () => {
         const user = result.user;
         console.log("hiuser", user);
         form.reset();
-        // setSuccess("Success login");
+        setSuccess("Success login");
         // navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -96,6 +96,13 @@ const Login = () => {
                 </Link>
               </label>
             </div>
+            {user?.displayName ? (
+              <p className="text-green-400">{success}</p>
+            ) : (
+              <p className="text-red-400 font-bold">
+                <Link to="/register">{loginError}</Link>
+              </p>
+            )}
 
             <div className="form-control mt-6">
               <button className="btn btn-secondary bg-secondary">Login</button>

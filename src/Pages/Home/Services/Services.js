@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Service from "../Service/Service";
 
 const Services = () => {
@@ -18,9 +19,11 @@ const Services = () => {
         <Service key={service._id} service={service}></Service>
       ))}
       <div className="card-actions justify-center my-10">
-        <button className="btn btn-outline btn-secondary">
-          See All <FaArrowRight />{" "}
-        </button>
+        <Link to="/servicesall">
+          <button className="btn btn-outline btn-secondary">
+            See All <FaArrowRight />{" "}
+          </button>
+        </Link>
       </div>
     </div>
   );
