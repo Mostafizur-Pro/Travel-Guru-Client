@@ -13,7 +13,7 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password, name, photo);
+    // console.log(email, password, name, photo);
 
     // if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
     //   setPasswordError("Please provide at least two uppercase");
@@ -33,7 +33,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         // setError("");
         form.reset();
         handleUpdateUserProfile(name, photo);

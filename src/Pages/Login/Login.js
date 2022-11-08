@@ -14,11 +14,11 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log("hiuser", user);
+        // console.log("hiuser", user);
         form.reset();
         setSuccess("Success login");
         // navigate(from, { replace: true });
@@ -38,7 +38,7 @@ const Login = () => {
     createGoogle()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         // navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -48,7 +48,7 @@ const Login = () => {
     createGithub()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         // navigate(from, { replace: true });
         // setUser(user);
       })

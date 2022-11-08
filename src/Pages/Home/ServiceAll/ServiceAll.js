@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Banner from "../Banner/Banner";
 import ServiceList from "./ServiceList";
 
 const ServiceAll = () => {
@@ -7,15 +8,18 @@ const ServiceAll = () => {
     fetch("http://localhost:5000/servicesall")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setServices(data);
       });
   }, []);
   return (
-    <div className="mb-10">
-      {services.map((service) => (
-        <ServiceList key={service._id} service={service}></ServiceList>
-      ))}
+    <div>
+      <Banner></Banner>
+      <div className="mb-10">
+        {services.map((service) => (
+          <ServiceList key={service._id} service={service}></ServiceList>
+        ))}
+      </div>
     </div>
   );
 };
