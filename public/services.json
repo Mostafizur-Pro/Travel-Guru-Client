@@ -1,0 +1,65 @@
+[
+    {
+        
+        "service_id": "01",
+        "title": "Cox's Bazar",
+        "img": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRXi8Jmx2CTJ-X_5_P1GjYlkR4SeY0IQBNfArxw8Ri07EUrxBo1z4AqUapJ23n8d219cElIXUG-iywT4Q5KvhX8Yw",
+        "price": "5,118",
+        "rating": "4.5",
+        "description": "Cox's Bazar, town, southeastern Bangladesh. It is situated along the Bay of Bengal about 60 miles (100 km) south of Chittagong. The town, constituted a municipality in 1869, was named for Hiram Cox, who supervised the settlement there of Arakanese refugees from conquest by Myanmar (Burma) in 1799."
+     
+    },
+    {
+        
+        "service_id": "02",
+        "title": "Sundarban National Park",
+        "img": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQxYEq87LMyXpRRLJdHfvmR7QuLKTKO7Amhyh_krZcbXj9by6D1a7uKXewYJEPaaJwZbWjtiSyOM0oQJfEpYzI72Q",
+        "price": "5,720",
+        "rating": "4.4",
+        "description": "The Sundarbans National Park is a national park, tiger reserve and biosphere reserve in West Bengal, India. It is part of the Sundarbans on the Ganges Delta and adjacent to the Sundarban Reserve Forest in Bangladesh. It is located to south-west of the Bangladesh. The delta is densely covered by mangrove forests, and is one of the largest reserves for the Bengal tiger. It is also home to a variety of bird, reptile and invertebrate species, including the salt-water crocodile. The present Sundarban National Park was declared as the core area of Sundarban Tiger Reserve in 1973 and a wildlife sanctuary in 1977. On 4 May 1984 it was declared a national park. It is a UNESCO World Heritage Site inscribed in 1987, and it has been designated as a Ramsar site since 2019. It is considered as a World Network of Biosphere Reserve from 1989. The first forest management division to have jurisdiction over the Sundarbans was established in 1869. In 1875 a large portion of the mangrove forests was declared as reserved forests under the Forest Act, 1865."
+     
+    },
+    {
+        
+        "service_id": "03",
+        "title": "Sajek Valley",
+        "img": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS6yV4gRJw1X05KfE4HcF2ip98XybCj_hmiu1O8100REaTJyfDEfcykd6zGm7LWsXkWK0vQB3tPArW6TjrCj6ZYTg",
+        "price": "10,716",
+        "rating": "4.7",
+        "description": "Sajek Tripuri Valley is one of the most popular tourist spots in Bangladesh situated among the hills of the Kasalong range of mountains in Sajek union, Baghaichhari Upazila in Rangamati District. The valley is 2,000 feet above sea level. Sajek Tripuri Valley is known as the Queen of Hills & Roof of Rangamati."
+     
+    },
+    {
+        
+        "service_id": "04",
+        "title": "Hanging Bridge Road",
+        "img": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRSRvF_3hYBdJuexML7lNMajOg3eyvLyFIhN-tklVhxASWtZCqbCjdeXAaiXTNfBjYmf4kOPC1tYWQl0FSr2jj6BQ",
+        "price": "9,866",
+        "rating": "4.2",
+        "description": "Hanging Bridge: Hanging Bridge(Jhulonto Bridge in Bengali)is the landmark icon of Rangamati. It’s a popular tourist spot and a must go destination.If you don’t visit Rangamati you will not discover a big portion of natural beauties of Bangladesh. From Chittagong a 77 km. road amidst green fields and winding hills will take you to Rangamati. It is also connected by waterway from Kaptai.[Hanging Bride, Rangamati] This is the only place to visit through out the year. Rangamati expresses her full beauty in rainy season. Trees becoming greener, waterfalls are in full tide, the river Karnaphuli in her full wave in this season. If you already visited Rangamati in winter, we advice to go there again in monsoon; you will feel the difference of nature yourself."
+     
+    },
+    
+    {
+        
+        "service_id": "05",
+        "title": "Nilachal Tourist Center",
+        "img": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRUGS8Cekerl6yFc0Ksg8yRl94GWJmtKq0bdtrDyW69ua1K-fAE4FKQ8bPdoew8nZXtF3GmxZimc3-nwl86V_SJHQ",
+        "price": "10,209",
+        "rating": "4.6",
+        "description": "Hanging Bridge: Hanging Bridge(Jhulonto Bridge in Bengali)is the landmark icon of Rangamati. It’s a popular tourist spot and a must go destination.If you don’t visit Rangamati you will not discover a big portion of natural beauties of Bangladesh. From Chittagong a 77 km. road amidst green fields and winding hills will take you to Rangamati. It is also connected by waterway from Kaptai.[Hanging Bride, Rangamati] This is the only place to visit through out the year. Rangamati expresses her full beauty in rainy season. Trees becoming greener, waterfalls are in full tide, the river Karnaphuli in her full wave in this season. If you already visited Rangamati in winter, we advice to go there again in monsoon; you will feel the difference of nature yourself."
+     
+    },
+    
+    {
+        
+        "service_id": "06",
+        "title": "Ahsan Manzil Museum",
+        "img": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ1kUAW1Zvb328ZQuA2y01D1S4SH-uF20sprcFfzcGIJYeBS9Fu_U2EKm_q84ydumF-K8-prPrMLlBRJYrntlVykA",
+        "price": "4,299",
+        "rating": "4.5",
+        "description": "Ahsan Manzil is the erstwhile official residential palace and seat of the Nawab of Dhaka. The building is situated at Kumartoli along the banks of the Buriganga River in Dhaka, Bangladesh. Construction was started in 1859 and was completed in 1872. It was constructed in the Indo-Saracenic Revival architecture. It has been designated as a national museum."
+     
+    }
+    
+]
