@@ -18,12 +18,13 @@ const ServiceDetails = () => {
       </div>
     </>
   );
-  const handlePlaceOrder = (event) => {
+  const handleComments = (event) => {
     event.preventDefault();
     const form = event.target;
     // const comments = `${form.first.value} ${form.last.value}`;
     const email = user?.email || "unregisteered";
-    const comment = form.text.value;
+    const comment = form.comments.value;
+    const profileImg = user?.photoURL;
     // const message = form.message.value;
     const message = {
       service: _id,
@@ -33,15 +34,32 @@ const ServiceDetails = () => {
       comment,
       email,
       rating,
+      profileImg,
     };
-    console.log(message);
+    // console.log(message);
+    fetch("http://localhost:5000/comments", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(message),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("Comments successfully added");
+          form.reset("");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <div>
       <div className="card w-full mt-20 mb-12 bg-base-100 shadow-xl">
         <figure>
-          <img src={img} alt="Shoes" />
+          <img src={img} alt="" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
@@ -61,7 +79,7 @@ const ServiceDetails = () => {
         </div>
       </div>
       <div>
-        <form onSubmit={handlePlaceOrder} className=" p-4">
+        <form onSubmit={handleComments} className=" p-4">
           <h1 className="text-3xl mb-3 flex  justify-start items-center">
             {" "}
             <FaComment /> <span className="p-5">Comments</span>
@@ -80,6 +98,7 @@ const ServiceDetails = () => {
             <div className="flex-none gap-2">
               <input
                 type="text"
+                name="comments"
                 placeholder="Type here"
                 className="input text-3xl  input-bordered input-secondary w-full max-w-xs"
               />

@@ -21,7 +21,16 @@ const Header = () => {
       <li>
         <Link to="/">Home</Link>
         <Link to="/blog">Blog</Link>
-        {/* <Link to="/login">Login</Link> */}
+        {user?.email ? (
+          <>
+            <p className="font-semibold">
+              <Link to="/review">Review</Link>{" "}
+            </p>
+          </>
+        ) : (
+          <></>
+        )}
+        ;{/* <Link to="/login">Login</Link> */}
       </li>
     </>
   );

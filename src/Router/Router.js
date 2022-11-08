@@ -6,6 +6,7 @@ import Register from "./../Pages/Register/Register";
 import ServiceDetails from "./../Pages/Home/ServiceDetails/ServiceDetails";
 import ServiceAll from "../Pages/Home/ServiceAll/ServiceAll";
 import PrivateRouter from "./PrivateRouter";
+import Review from "../Pages/Review/Review/Review";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -43,6 +44,14 @@ export const router = createBrowserRouter([
       {
         path: "/servicesall",
         element: <ServiceAll></ServiceAll>,
+      },
+      {
+        path: "/review",
+        element: (
+          <PrivateRouter>
+            <Review></Review>
+          </PrivateRouter>
+        ),
       },
     ],
   },
