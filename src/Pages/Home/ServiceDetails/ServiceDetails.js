@@ -11,7 +11,7 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const { _id, description, title, img, price, rating } = useLoaderData();
   const [commentes, setComments] = useState([]);
-  console.log(user);
+  // console.log(commentes);
   const ratingFuction = (
     <>
       <div className="flex justify-center text-orange-400 items-center">
@@ -32,7 +32,10 @@ const ServiceDetails = () => {
     const comment = form.comments.value;
     const profileImg = user?.photoURL;
     const userName = user?.displayName;
+    const currentTime = new Date();
+
     // const message = form.message.value;
+    // console.log(form);
     const message = {
       service: _id,
       servicName: title,
@@ -43,7 +46,7 @@ const ServiceDetails = () => {
       rating,
       profileImg,
       userName,
-      setTimeout,
+      currentTime,
     };
     console.log(message);
     fetch("http://localhost:5000/comments", {
@@ -55,7 +58,6 @@ const ServiceDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           alert("Comments successfully added");
           form.reset("");
@@ -69,15 +71,9 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setComments(data);
+        // console.log(data);
       });
   }, []);
-  //  useEffect(() => {
-  //    fetch(`http://localhost:5000/comments/${_id}?id=${_id}`)
-  //      .then((res) => res.json())
-  //      .then((data) => {
-  //        setComments(data);
-  //      });
-  //  }, [_id, commentes]);
 
   return (
     <div>
@@ -147,7 +143,7 @@ const ServiceDetails = () => {
               <input type="radio" name="rating-1" className="mask mask-star" />
               <input type="radio" name="rating-1" className="mask mask-star" />
             </div>
-            <div className="">
+            <div className=" ">
               {commentes.map((comments) =>
                 _id === comments.service ? (
                   <Comments key={comments._id} comments={comments}></Comments>
