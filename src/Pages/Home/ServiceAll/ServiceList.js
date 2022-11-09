@@ -1,6 +1,8 @@
 import React from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const ServiceList = ({ service }) => {
   const { _id, description, title, img, price, rating } = service;
@@ -21,7 +23,12 @@ const ServiceList = ({ service }) => {
     <div>
       <div className="card lg:card-side bg-base-100 mb-5 shadow-xl">
         <figure>
-          <img className="ml-20 w-96" src={img} alt="" />
+          <PhotoProvider>
+            <PhotoView src={img}>
+              <img className="ml-20 w-96" src={img} alt="" />
+            </PhotoView>
+          </PhotoProvider>
+          {/* <img className="ml-20 w-96" src={img} alt="" /> */}
         </figure>
         <div className="card-body">
           <h2 className="card-title text-2xl text-secondary">{title}</h2>
