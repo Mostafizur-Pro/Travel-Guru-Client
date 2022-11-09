@@ -34,6 +34,25 @@ const ReviewList = ({ comments, handleDelete }) => {
       <td>${price}</td>
       <td>{rating} star</td>
       <td>
+        <label for="my-modal-6" className="btn btn-secondary">
+          Edit
+        </label>
+        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+        <div class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg">
+              Do you sure Edit this review in {servicName}
+            </h3>
+            <p class="py-4">You've been selected for a chance to get.</p>
+            <div class="modal-action">
+              <label for="my-modal-6" class="btn">
+                Yas !
+              </label>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
         <label>
           <button
             onClick={() => handleDelete(_id)}

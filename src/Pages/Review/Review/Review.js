@@ -61,6 +61,7 @@ const Review = () => {
             <th className="font-bold text-lg">Email</th>
             <th className="font-bold text-lg">Price</th>
             <th className="font-bold text-lg">Rating</th>
+            <th className="font-bold text-lg">Edit Review</th>
             <th className="font-bold text-lg">Delete</th>
           </tr>
         </thead>

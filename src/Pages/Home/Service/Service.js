@@ -1,13 +1,22 @@
 import React from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ImgsViewer from "react-images-viewer";
 
 const Service = ({ service }) => {
   const { _id, description, title, img, price, rating } = service;
   return (
     <div>
-      <div className="card card-side bg-base-100 mb-5 shadow-xl">
+      <div className="card lg:card-side  bg-base-100 mb-5 shadow-xl">
         <figure>
+          {/* <ImgsViewer
+            imgs={[{ src: { img } }, { src: { img } }]}
+            currImg={this.state.currImg}
+            isOpen={this.state.viewerIsOpen}
+            onClickPrev={this.gotoPrevious}
+            onClickNext={this.gotoNext}
+            onClose={this.closeViewer}
+          /> */}
           <img className="ml-20 w-96" src={img} alt="" />
         </figure>
         <div className="card-body">

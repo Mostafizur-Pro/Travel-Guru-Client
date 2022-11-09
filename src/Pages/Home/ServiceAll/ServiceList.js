@@ -19,7 +19,7 @@ const ServiceList = ({ service }) => {
   );
   return (
     <div>
-      <div className="card card-side bg-base-100 mb-5 shadow-xl">
+      <div className="card lg:card-side bg-base-100 mb-5 shadow-xl">
         <figure>
           <img className="ml-20 w-96" src={img} alt="" />
         </figure>

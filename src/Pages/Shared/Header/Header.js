@@ -25,7 +25,7 @@ const Header = () => {
         {user?.uid ? (
           <>
             <p className="font-semibold">
-              <Link to="/review">Review</Link>{" "}
+              <Link to="/review">My Review</Link>{" "}
             </p>
           </>
         ) : (
