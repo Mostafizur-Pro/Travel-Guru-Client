@@ -4,8 +4,10 @@ import { FaComment, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 import Comments from "./Comments";
 import Service from "./../Service/Service";
+import useTitle from "./../../../Hooks/useTitle";
 
 const ServiceDetails = () => {
+  useTitle("ServiceDetails");
   const { user } = useContext(AuthContext);
   const { _id, description, title, img, price, rating } = useLoaderData();
   const [commentes, setComments] = useState([]);

@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import useTitle from "./../../Hooks/useTitle";
 
 const Register = () => {
+  useTitle("Register");
+
   const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleSubmit = (event) => {

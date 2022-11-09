@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "./../../../Hooks/useTitle";
 
 const Comments = ({ comments }) => {
+  useTitle("Comments");
   console.log(comments);
   const {
     comment,

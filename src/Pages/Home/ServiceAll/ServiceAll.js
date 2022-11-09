@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
 import ServiceList from "./ServiceList";
+import useTitle from "./../../../Hooks/useTitle";
 
 const ServiceAll = () => {
+  useTitle("Service All");
   const [services, setServices] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/servicesall")

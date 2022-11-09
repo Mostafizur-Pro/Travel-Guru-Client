@@ -1,16 +1,15 @@
 import React from "react";
+import useTitle from "./../../Hooks/useTitle";
 
 const Blog = () => {
+  useTitle("Blog");
   return (
     <div className="my-10">
-      <div
-        tabIndex={0}
-        className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-t-lg"
-      >
-        <div className="collapse-title text-xl bg-sky-200 font-medium">
-          Difference between SQL and NoSQL
-        </div>
-        <div className="collapse-content bg-sky-100">
+      <div className="card w-full border-4 border-indigo-500/50 mb-10">
+        <div className="card-body items-center text-start">
+          <h2 className="card-title underline mb-2">
+            Difference between SQL and NoSQL
+          </h2>
           <p>
             SQL is the programming language used to interface with relational
             databases.{" "}
@@ -23,14 +22,12 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <div
-        tabIndex={0}
-        className="collapse collapse-arrow border border-base-300 bg-base-100 "
-      >
-        <div className="collapse-title text-xl  bg-orange-200 font-medium">
-          What is JWT, and how does it work?
-        </div>
-        <div className="collapse-content  bg-orange-100">
+
+      <div className="card w-full border-4 border-indigo-500/50 mb-10">
+        <div className="card-body items-center text-start">
+          <h2 className="card-title underline mb-2">
+            What is JWT, and how does it work?
+          </h2>
           <p>
             What is JWT <strong>JSON Web Token</strong>? JSON Web Token{" "}
             <strong>JWT</strong> is an open standard <strong>RFC 7519</strong>{" "}
@@ -41,14 +38,12 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <div
-        tabIndex={0}
-        className="collapse collapse-arrow border border-base-300 bg-base-100 "
-      >
-        <div className="collapse-title text-xl  bg-lime-200 font-medium">
-          What is the difference between javascript and NodeJS?
-        </div>
-        <div className="collapse-content  bg-lime-100">
+
+      <div className="card w-full border-4 border-indigo-500/50 mb-10">
+        <div className="card-body items-center text-start">
+          <h2 className="card-title underline mb-2">
+            What is the difference between javascript and NodeJS?
+          </h2>
           <p>
             JavaScript is a simple programming language that can be used with
             any browser that has the JavaScript Engine installed. Node. js, on
@@ -57,14 +52,12 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <div
-        tabIndex={0}
-        className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-b-lg"
-      >
-        <div className="collapse-title text-xl bg-violet-200 font-medium">
-          How does NodeJS handle multiple requests at the same time?
-        </div>
-        <div className="collapse-content bg-violet-100">
+
+      <div className="card w-full border-4 border-indigo-500/50 mb-10">
+        <div className="card-body items-center text-start">
+          <h2 className="card-title underline mb-2">
+            How does NodeJS handle multiple requests at the same time?
+          </h2>
           <p>
             How NodeJS handle multiple client requests?{" "}
             <strong>
