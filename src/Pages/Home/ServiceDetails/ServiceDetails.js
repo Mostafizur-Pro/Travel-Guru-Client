@@ -123,11 +123,24 @@ const ServiceDetails = () => {
                 placeholder="Type here"
                 className="input text-2xl  input-bordered input-secondary "
               />
-              <input
+              {user?.email ? (
+                <input
+                  type="submit"
+                  value="Post"
+                  className="btn  text-xl ml-5 btn-secondary"
+                />
+              ) : (
+                <input
+                  type="submit"
+                  value="Post"
+                  className="btn text-xl btn-disabled  ml-5 btn-secondary"
+                />
+              )}
+              {/* <input
                 type="submit"
                 value="Post"
                 className="btn text-xl ml-5 btn-secondary"
-              />
+              /> */}
             </div>
           </div>
           <div className="ml-24 mt-10">
