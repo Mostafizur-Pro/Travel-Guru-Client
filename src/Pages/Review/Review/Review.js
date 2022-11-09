@@ -9,6 +9,7 @@ const Review = () => {
   const { user } = useContext(AuthContext);
 
   const [commentes, setComments] = useState([]);
+  // console.log(commentes[0]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/comments?email=${user?.email}`)
@@ -38,43 +39,51 @@ const Review = () => {
 
   return (
     <div className="overflow-x-auto w-full">
+      {commentes[0] ? (
+        <>
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th>
+                  <label>
+                    <img
+                      className="w-20 rounded-full"
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  </label>
+                </th>
+
+                <th className="font-bold text-lg">Place name</th>
+                <th className="font-bold text-lg">Comments</th>
+                <th className="font-bold text-lg">Email</th>
+                <th className="font-bold text-lg">Price</th>
+                <th className="font-bold text-lg">Rating</th>
+                <th className="font-bold text-lg">Edit Review</th>
+                <th className="font-bold text-lg">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {commentes.map((comments) => (
+                <ReviewList
+                  key={comments._id}
+                  comments={comments}
+                  handleDelete={handleDelete}
+                ></ReviewList>
+              ))}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <h1 className="text-3xl text-center my-12 font-bold">
+          No Reviews ware added
+        </h1>
+      )}
+
       {/* <div>
         <hi>{user?.email}</hi>
         <h3 className="text-2xl">You have {comments.length} Comments</h3>
       </div> */}
-
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th>
-              <label>
-                <img
-                  className="w-20 rounded-full"
-                  src={user?.photoURL}
-                  alt=""
-                />
-              </label>
-            </th>
-
-            <th className="font-bold text-lg">Place name</th>
-            <th className="font-bold text-lg">Comments</th>
-            <th className="font-bold text-lg">Email</th>
-            <th className="font-bold text-lg">Price</th>
-            <th className="font-bold text-lg">Rating</th>
-            <th className="font-bold text-lg">Edit Review</th>
-            <th className="font-bold text-lg">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {commentes.map((comments) => (
-            <ReviewList
-              key={comments._id}
-              comments={comments}
-              handleDelete={handleDelete}
-            ></ReviewList>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 };

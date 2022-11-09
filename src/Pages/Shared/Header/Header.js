@@ -27,6 +27,9 @@ const Header = () => {
             <p className="font-semibold">
               <Link to="/review">My Review</Link>{" "}
             </p>
+            <p className="font-semibold">
+              <Link to="/addservice">Add Service</Link>{" "}
+            </p>
           </>
         ) : (
           <></>
@@ -106,6 +109,11 @@ const Header = () => {
                     </button>
                   </li>
                 </ul>
+              </div>
+              <div className="">
+                <button className="btn mx-2" onClick={handleLogOut}>
+                  Log out
+                </button>
               </div>
             </>
           ) : (
