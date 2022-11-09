@@ -23,7 +23,25 @@ const AddService = () => {
       description,
     };
     console.log(service);
+
+    fetch("http://localhost:5000/services", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(service),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("Comments successfully added");
+          form.reset("");
+        }
+      })
+      .catch((err) => console.log(err));
   };
+
   return (
     <div className="  rounded-secondary">
       <div className="hero-content  flex-col ">

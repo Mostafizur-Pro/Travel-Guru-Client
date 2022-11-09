@@ -11,7 +11,7 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const { _id, description, title, img, price, rating } = useLoaderData();
   const [commentes, setComments] = useState([]);
-  // console.log(user);
+  console.log(user);
   const ratingFuction = (
     <>
       <div className="flex justify-center text-orange-400 items-center">
@@ -108,7 +108,7 @@ const ServiceDetails = () => {
             {" "}
             <FaComment /> <span className="p-5">Comments</span>
           </h1>
-          <div className="input flex  bg-base-100">
+          <div className="input flex  items-center  bg-base-100">
             <div className="dropdown dropdown-end">
               <label
                 tabIndex={0}
@@ -119,21 +119,22 @@ const ServiceDetails = () => {
                 </div>
               </label>
             </div>
-            <div className="flex-none gap-2">
+            <div className="flex-none gap-4">
+              <div className="font-semibold text-xl">{user?.displayName}</div>
               <input
                 type="text"
                 name="comments"
                 placeholder="Type here"
-                className="input text-3xl  input-bordered input-secondary w-full max-w-xs"
+                className="input text-2xl  input-bordered input-secondary "
+              />
+              <input
+                type="submit"
+                value="Post"
+                className="btn text-xl ml-5 btn-secondary"
               />
             </div>
-            <input
-              type="submit"
-              value="Post"
-              className="btn ml-5 btn-secondary"
-            />
           </div>
-          <div className="ml-24 my-2">
+          <div className="ml-24 mt-10">
             <div className="rating mb-24">
               <input type="radio" name="rating-1" className="mask mask-star" />
               <input
