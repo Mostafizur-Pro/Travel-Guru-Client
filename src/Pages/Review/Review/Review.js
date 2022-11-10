@@ -13,7 +13,12 @@ const Review = () => {
 
   useEffect(() => {
     fetch(
-      `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments?email=${user?.email}`
+      `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
     )
       .then((res) => res.json())
       .then((data) => setComments(data));

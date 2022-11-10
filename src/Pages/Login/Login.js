@@ -23,23 +23,45 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     // console.log(email, password);
-    signIn(email, password)
-      .then((result) => {
-        const user = result.user;
-        // console.log("hiuser", user);
-        form.reset();
-        setSuccess("Success login");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        setLoginError(
-          "Please confirm your email and password. Please create account"
-        );
-        console.error(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      const currentUser = {
+        emeil: user.email,
+      };
+
+      fetch(
+        "https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/jwt",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // local storage is the easiest but not the best
+          // plase to store token id
+          localStorage.setItem("token", data.token);
+          navigate(from, { replace: true });
+        });
+
+      // console.log("hiuser", user);
+      // form.reset();
+      // setSuccess("Success login");
+      // navigate(from, { replace: true });
+    });
+    // .catch((error) => {
+    //   setLoginError(
+    //     "Please confirm your email and password. Please create account"
+    //   );
+    //   console.error(error);
+    // })
+    // .finally(() => {
+    //   setLoading(false);
+    // });
   };
   const handleGoogleSignIn = (event) => {
     event.preventDefault();
