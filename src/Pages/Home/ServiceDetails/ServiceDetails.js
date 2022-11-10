@@ -8,7 +8,7 @@ import useTitle from "./../../../Hooks/useTitle";
 
 const ServiceDetails = () => {
   useTitle("ServiceDetails");
-  const { user } = useContext(AuthContext);
+  const { user, setLoading } = useContext(AuthContext);
   const { _id, description, title, img, price, rating } = useLoaderData();
   const [commentes, setComments] = useState([]);
   // console.log(commentes);
@@ -63,10 +63,16 @@ const ServiceDetails = () => {
       .then((data) => {
         if (data.acknowledged) {
           alert("Comments successfully added");
+          setLoading(true);
           form.reset("");
         }
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleEdit = (event) => {
+    event.preventDefault();
+    console.log("edit");
   };
 
   useEffect(() => {
@@ -77,6 +83,7 @@ const ServiceDetails = () => {
       .then((data) => {
         setComments(data);
         // console.log(data);
+        // setLoading(true)
       });
   }, []);
 
@@ -104,74 +111,96 @@ const ServiceDetails = () => {
         </div>
       </div>
       <div>
-        <form onSubmit={handleComments} className=" p-4">
-          <h1 className="text-3xl mb-3 flex  justify-start items-center">
-            {" "}
-            <FaComment /> <span className="p-5">Comments</span>
-          </h1>
-          <div className="input flex  items-center  bg-base-100">
-            <div className="dropdown dropdown-end">
-              <label
-                tabIndex={0}
-                className="btn mr-5  btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img src={user?.photoURL} alt="" />
+        {user?.email ? (
+          <>
+            <form onSubmit={handleComments} className=" p-4">
+              <h1 className="text-3xl mb-3 flex  justify-start items-center">
+                {" "}
+                <FaComment /> <span className="p-5">Comments</span>
+              </h1>
+              <div className="input flex  items-center  bg-base-100">
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn mr-5  btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src={user?.photoURL} alt="" />
+                    </div>
+                  </label>
                 </div>
-              </label>
-            </div>
-            <div className="flex-none gap-4">
-              <div className="font-semibold text-xl">{user?.displayName}</div>
-              <input
-                type="text"
-                name="comments"
-                placeholder="Type here"
-                className="input text-2xl  input-bordered input-secondary "
-              />
-              {user?.email ? (
-                <input
-                  type="submit"
-                  value="Post"
-                  className="btn  text-xl ml-5 btn-secondary"
-                />
-              ) : (
-                <input
-                  type="submit"
-                  value="Post"
-                  className="btn text-xl btn-disabled  ml-5 btn-secondary"
-                />
-              )}
-              {/* <input
-                type="submit"
-                value="Post"
-                className="btn text-xl ml-5 btn-secondary"
-              /> */}
-            </div>
-          </div>
-          <div className="ml-24 mt-10">
-            <div className="rating mb-24">
-              <input type="radio" name="rating-1" className="mask mask-star" />
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star"
-                checked
-              />
-              <input type="radio" name="rating-1" className="mask mask-star" />
-              <input type="radio" name="rating-1" className="mask mask-star" />
-              <input type="radio" name="rating-1" className="mask mask-star" />
-            </div>
+                <div className="flex-none gap-4">
+                  <div className="font-semibold text-xl">
+                    {user?.displayName}
+                  </div>
+                  <input
+                    type="text"
+                    name="comments"
+                    placeholder="Type here"
+                    className="input text-2xl  input-bordered input-secondary "
+                  />
+                  <input
+                    type="submit"
+                    value="Post"
+                    className="btn  text-xl ml-5 btn-secondary"
+                  />
+                </div>
+              </div>
+              <div className="ml-24 mt-10">
+                <div className="rating mb-24">
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    className="mask mask-star"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    className="mask mask-star"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    className="mask mask-star"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    className="mask mask-star"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    className="mask mask-star"
+                  />
+                </div>
+              </div>
+            </form>
             <div className=" ">
               {commentes.map((comments) =>
                 _id === comments.service ? (
-                  <Comments key={comments._id} comments={comments}></Comments>
+                  <Comments
+                    key={comments._id}
+                    comments={comments}
+                    handleEdit={handleEdit}
+                  ></Comments>
                 ) : (
                   <></>
                 )
               )}
             </div>
-          </div>
-        </form>
+          </>
+        ) : (
+          <>
+            {" "}
+            <Link to="/login">
+              <h3 className="text-2xl py-10 text-red-400">
+                Please login to add a review
+              </h3>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
