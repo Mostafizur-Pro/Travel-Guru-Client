@@ -14,6 +14,7 @@ const AddService = () => {
     const price = form.price.value;
     const rating = form.rating.value;
     const description = form.description.value;
+    const currentTime = new Date();
 
     const service = {
       title,
@@ -21,6 +22,7 @@ const AddService = () => {
       price,
       rating,
       description,
+      currentTime,
     };
     // console.log(service);
 

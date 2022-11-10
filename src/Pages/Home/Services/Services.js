@@ -17,9 +17,12 @@ const Services = () => {
   }, []);
   return (
     <div>
-      {services.map((service) => (
-        <Service key={service._id} service={service}></Service>
-      ))}
+      {services &&
+        services
+          .sort((a, b) => (a.currentTime > b.currentTime ? -1 : 1))
+          .map((service) => (
+            <Service key={service._id} service={service}></Service>
+          ))}
       <div className="card-actions justify-center my-10">
         <Link to="/servicesall">
           <button className="btn btn-outline btn-secondary">

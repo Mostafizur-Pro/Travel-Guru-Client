@@ -5,12 +5,14 @@ import { AuthContext } from "../../../Contexts/AuthProvider";
 import Comments from "./Comments";
 import Service from "./../Service/Service";
 import useTitle from "./../../../Hooks/useTitle";
+import PrivateRouter from "../../../Router/PrivateRouter";
 
 const ServiceDetails = () => {
   useTitle("ServiceDetails");
   const { user, setLoading } = useContext(AuthContext);
   const { _id, description, title, img, price, rating } = useLoaderData();
   const [commentes, setComments] = useState([]);
+  const [data, setData] = useState(false);
   // console.log(commentes);
 
   const ratingFuction = (
@@ -25,6 +27,18 @@ const ServiceDetails = () => {
       </div>
     </>
   );
+  useEffect(() => {
+    fetch(
+      `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments?service=${_id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setComments(data);
+        // console.log(data);
+        // setLoading(true);
+      });
+  }, [data]);
+
   const handleComments = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -63,8 +77,9 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
+          setData(true);
           alert("Comments successfully added");
-          setLoading(true);
+          // setLoading(true);
           form.reset("");
         }
       })
@@ -75,18 +90,6 @@ const ServiceDetails = () => {
     event.preventDefault();
     console.log("edit");
   };
-
-  useEffect(() => {
-    fetch(
-      `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments?service=${_id}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setComments(data);
-        // console.log(data);
-        // setLoading(true)
-      });
-  }, []);
 
   return (
     <div>
@@ -178,33 +181,32 @@ const ServiceDetails = () => {
                 </div>
               </div>
             </form>
-            <div className=" ">
-              {commentes &&
-                commentes
-                  .sort((a, b) => (a.currentTime > b.currentTime ? -1 : 1))
-                  .map((comments) =>
-                    _id === comments.service ? (
-                      <Comments
-                        key={comments._id}
-                        comments={comments}
-                        handleEdit={handleEdit}
-                      ></Comments>
-                    ) : (
-                      <></>
-                    )
-                  )}
-            </div>
           </>
         ) : (
           <>
-            {" "}
             <Link to="/login">
-              <h3 className="text-2xl py-10 text-red-400">
-                Please login to add a review
+              <h3 className="text-3xl text-center py-10 text-red-400">
+                Please login for add a Review
               </h3>
             </Link>
           </>
         )}
+        <div className=" ">
+          {commentes &&
+            commentes
+              .sort((a, b) => (a.currentTime > b.currentTime ? -1 : 1))
+              .map((comments) =>
+                _id === comments.service ? (
+                  <Comments
+                    key={comments._id}
+                    comments={comments}
+                    handleEdit={handleEdit}
+                  ></Comments>
+                ) : (
+                  <></>
+                )
+              )}
+        </div>
       </div>
     </div>
   );

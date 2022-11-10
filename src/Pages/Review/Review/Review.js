@@ -89,11 +89,6 @@ const Review = () => {
           No Reviews ware added
         </h1>
       )}
-
-      {/* <div>
-        <hi>{user?.email}</hi>
-        <h3 className="text-2xl">You have {comments.length} Comments</h3>
-      </div> */}
     </div>
   );
 };
