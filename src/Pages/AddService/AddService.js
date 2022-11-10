@@ -24,13 +24,16 @@ const AddService = () => {
     };
     // console.log(service);
 
-    fetch("http://localhost:5000/services", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(service),
-    })
+    fetch(
+      "https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/services",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(service),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

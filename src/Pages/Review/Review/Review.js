@@ -12,7 +12,9 @@ const Review = () => {
   // console.log(commentes[0]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/comments?email=${user?.email}`)
+    fetch(
+      `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, [user?.email]);
@@ -22,9 +24,12 @@ const Review = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/comments/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

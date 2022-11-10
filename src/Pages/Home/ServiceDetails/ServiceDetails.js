@@ -49,13 +49,16 @@ const ServiceDetails = () => {
       currentTime,
     };
     console.log(message);
-    fetch("http://localhost:5000/comments", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(message),
-    })
+    fetch(
+      "https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(message),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
@@ -67,7 +70,9 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/comments?service=${_id}`)
+    fetch(
+      `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments?service=${_id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setComments(data);

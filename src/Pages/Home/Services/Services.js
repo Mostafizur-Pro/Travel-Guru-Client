@@ -6,7 +6,9 @@ import Service from "../Service/Service";
 const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch(
+      "https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/services"
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
