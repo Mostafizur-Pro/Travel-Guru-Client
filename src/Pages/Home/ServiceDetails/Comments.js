@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Comments = ({ comments, handleEdit }) => {
   const { user } = useContext(AuthContext);
+
   useTitle("Comments");
   // console.log(comments);
   const {
@@ -40,7 +41,7 @@ const Comments = ({ comments, handleEdit }) => {
           </p>
           <p> {currentTime}</p>
 
-          <div className="card-actions justify-end">
+          {/* <div className="card-actions justify-end">
             <label for="my-modal-6" className="btn btn-secondary">
               Edit
             </label>
@@ -67,7 +68,7 @@ const Comments = ({ comments, handleEdit }) => {
                 </div>
               </div>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

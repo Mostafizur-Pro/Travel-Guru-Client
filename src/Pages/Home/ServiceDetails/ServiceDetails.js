@@ -12,6 +12,7 @@ const ServiceDetails = () => {
   const { _id, description, title, img, price, rating } = useLoaderData();
   const [commentes, setComments] = useState([]);
   // console.log(commentes);
+
   const ratingFuction = (
     <>
       <div className="flex justify-center text-orange-400 items-center">
@@ -178,17 +179,20 @@ const ServiceDetails = () => {
               </div>
             </form>
             <div className=" ">
-              {commentes.map((comments) =>
-                _id === comments.service ? (
-                  <Comments
-                    key={comments._id}
-                    comments={comments}
-                    handleEdit={handleEdit}
-                  ></Comments>
-                ) : (
-                  <></>
-                )
-              )}
+              {commentes &&
+                commentes
+                  .sort((a, b) => (a.currentTime > b.currentTime ? -1 : 1))
+                  .map((comments) =>
+                    _id === comments.service ? (
+                      <Comments
+                        key={comments._id}
+                        comments={comments}
+                        handleEdit={handleEdit}
+                      ></Comments>
+                    ) : (
+                      <></>
+                    )
+                  )}
             </div>
           </>
         ) : (

@@ -10,6 +10,7 @@ import Review from "../Pages/Review/Review/Review";
 import Comments from "../Pages/Home/ServiceDetails/Comments";
 import Profile from "./../Pages/Profile/Profile";
 import AddService from "../Pages/AddService/AddService";
+import RevgiewEdit from "../Pages/Review/Review/ReviewEdit.js/RevgiewEdit";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
       {
         path: "/servicesall",
         element: <ServiceAll></ServiceAll>,
+      },
+      {
+        path: "/reviewEdit",
+        element: <RevgiewEdit></RevgiewEdit>,
       },
       {
         path: "/review",

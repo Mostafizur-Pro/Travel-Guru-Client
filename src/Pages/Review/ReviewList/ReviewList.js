@@ -1,8 +1,58 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaRecycle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthProvider";
+import RevgiewEdit from "../Review/ReviewEdit.js/RevgiewEdit";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ReviewList = ({ comments, handleDelete }) => {
+  const notify = () => toast("Wow so easy!");
+  const { user } = useContext(AuthContext);
   const { comment, email, img, price, rating, servicName, _id } = comments;
+
+  const hanldeEdit = (event) => {
+    // event.preventDefault();
+    const comment = prompt("Please enter your name", "Type New Comments");
+    // const form = event.target;
+    const email = user?.email || "unregisteered";
+    // const comment = form.text.value;
+    const profileImg = user?.photoURL;
+    const userName = user?.displayName;
+    const currentTime = new Date();
+
+    const message = {
+      service: _id,
+      servicName,
+      price,
+      img,
+      comment,
+      email,
+      rating,
+      profileImg,
+      userName,
+      currentTime,
+    };
+
+    console.log("Message", message);
+
+    fetch(
+      `https://b6a11-service-review-server-side-mostafizur-pro.vercel.app/comments/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(message),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        notify();
+      });
+  };
   return (
     <tr>
       <th>
@@ -10,6 +60,10 @@ const ReviewList = ({ comments, handleDelete }) => {
           <img className="w-48 " src={img} alt="" />
         </label>
       </th>
+      {/* <th>
+        <button onClick={notify}>Notify!</button>
+        <ToastContainer />
+      </th> */}
       <td>
         <div className="flex items-center space-x-3">
           {/* <div className="avatar">
@@ -34,6 +88,9 @@ const ReviewList = ({ comments, handleDelete }) => {
       <td>${price}</td>
       <td>{rating} star</td>
       <td>
+        <div onClick={() => hanldeEdit(_id)}>Edit</div>
+      </td>
+      {/* <td>
         <label for="my-modal-6" className="btn btn-secondary">
           Edit
         </label>
@@ -43,15 +100,25 @@ const ReviewList = ({ comments, handleDelete }) => {
             <h3 class="font-bold text-lg">
               Do you sure Edit this review in {servicName}
             </h3>
-            <p class="py-4">You've been selected for a chance to get.</p>
+            <input
+              type="text"
+              name="comments"
+              placeholder="Type new comments "
+              id=""
+              className="input input-bordered"
+            />
             <div class="modal-action">
-              <label for="my-modal-6" class="btn">
+              <label
+                onSubmit={() => hanldeEdit(_id)}
+                for="my-modal-6"
+                class="btn"
+              >
                 Yas !
               </label>
             </div>
           </div>
         </div>
-      </td>
+      </td> */}
       <td>
         <label>
           <button
